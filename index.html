@@ -1,0 +1,191 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
+<script src="jquery.min.js"></script>
+<script src="bootstrap.min.js"></script>
+<link rel="stylesheet" href="bootstrap.min.css">
+<link rel="stylesheet" href="index.css">
+<script src="rotaryDraw.js"></script>
+<title>转盘抽奖</title>
+</head>
+<body>
+    <div class="banner">
+        <img src="images/banner_bg.jpg" class="banner-draw" alt="">
+        <img src="images/banner_text.png" class="banner-text">
+    </div>
+    <div class="box">
+        <img src="images/z1.png" class="img01" alt="">
+        <img src="images/z2.png" class="drawBtn">
+    </div>
+
+    <div id="draw-content">
+        <img src="images/title1.png" class="title-img">
+    </div>
+    <div class="lottery-rules">
+        <li>
+            <img src="images/p1.png">
+            <span class="lottert-text">神秘奖: 学客价值3000元精英会员</span>
+        </li>
+        <li>
+            <img src="images/p2.png">
+            <span class="lottert-text">麻省理工: 学客商城4折优惠券</span>
+        </li>
+        <li>
+            <img src="images/p3.png">
+            <span class="lottert-text">斯坦福: 学客商城5折优惠券</span>
+        </li>
+        <li>
+            <img src="images/p4.png">
+            <span class="lottert-text">牛津: 学客商城6折优惠券</span>
+        </li>
+        <li>
+            <img src="images/p5.png">
+            <span class="lottert-text">哈佛: 学客商城7折优惠券</span>
+        </li>
+        <li>
+            <img src="images/p6.png">
+            <span class="lottert-text">剑桥: 学客商城8折优惠券</span>
+        </li>
+        <li>
+            <img src="images/p7.png">
+            <span class="lottert-text">光棍奖: 5元微信现金红包</span>
+        </li>
+    </div>
+    <div class="activity-content">
+        <img src="images/title2.png" class="title-img">
+    </div>
+
+    <!-- 模态框（Modal） -->
+    <div id="apply4" class="modal fade padding1 in" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-content">
+            <div class="modal-body">
+                <div class="img1">
+                    <img src="images/gp_bg.png" class="gpbg">
+                    <span class="draw-cgl"><img src="images/cgl.png" class="cgl"></span>
+                    <span class="draw-title" >获得"剑桥"奖</span>
+                    <span class="but5"  ><img src="images/btn.png" data-dismiss="modal"></span>
+                </div>
+            </div>
+        </div>
+    </div>
+<script>
+$(".box .img01").load(function() {
+	var obj = $(".drawBtn");
+	var hei = $(this).height();
+	var hei2 = obj.height();
+	obj.css("top",(hei - hei2)/2);
+});
+$(".box1 .img01").load(function() {
+	var obj = $(".drawBtn2");
+	var hei = $(this).height();
+	var hei2 = obj.height();
+	obj.css("top",(hei - hei2)/2);
+});
+</script>
+<script>
+//share份额[数字没有默认],
+//speed速度[单位s,最小0.1s],
+//velocityCurve速度曲线[linear匀速，ease慢快慢，ease-in慢慢开始，ease-out慢慢结束，ease-in-out慢快慢等，用的是css3的速度曲线],可以不写，ease默认值；
+//callback回调函数
+//weeks几周[默认2周，可以不写]
+
+//几份和回调函数这两个参数是必填
+
+
+function callbackA(drawId){
+	 if(drawId == '1'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"剑桥"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  } else if(drawId == '2'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"神秘奖"'),
+      $('#apply4').modal({
+          keyboard: true
+      })
+
+  } else if(drawId == '3'|| drawId == '6'||drawId == '9') {
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/vp.png")
+      $('.draw-title').text('您未中奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  } else if(drawId == '4') {
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"麻省理工"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  } else if(drawId == '5'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"斯坦福"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  }else if(drawId == '7'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"牛津"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  }else if(drawId == '8'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"哈佛"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+  }else if(drawId == '10'){
+      $('.gpbg').attr("src","images/vp.png")
+      $('.cgl').attr("src","images/cgl.png")
+      $('.draw-title').text('获得"光棍"奖')
+      $('#apply4').modal({
+          keyboard: true
+      })
+
+  }else if(today >'5'){
+      $('.gpbg').attr("src","images/gp_bg.png")
+      $('.cgl').attr("src","images/vp.png")
+      $('.draw-title').text('明天再来')
+      $('#apply4').modal({
+          keyboard: true
+      })
+}
+}
+var newdraw =new turntableDraw('.drawBtn',{
+	share:10,
+	speed:"5s",
+	velocityCurve:"ease",
+	weeks:6,
+	callback:function(num)
+	{
+		callbackA(num);
+	},
+});
+var isture = true
+$(".drawBtn").click(function(event) {
+	//ajax
+	alert(isture)
+	if(isture == true){
+		isture = false
+		newdraw.goto(parseInt(Math.random()*8)+1);
+		
+	}else if(isture == false){
+		alert('没有次数了')
+	}
+});
+
+</script>
+
+</body>
+</html>
